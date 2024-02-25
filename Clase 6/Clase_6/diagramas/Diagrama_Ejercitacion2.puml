@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/class-diagram
+class DigitalFc{
+-nombre:String
+-apellido: String
+-id: int
+-correo: String
+-edad : int
+}
+
+class Futbolista{
+-posicionDeJuego: String
+-esTitular: boolean
++jugar()
++entrenar()
+}
+
+class Presidente{
++supervisar()
++administrar()
+}
+
+class Fisioterapeuta{
++ realizarControl()
++ registrarProgreso()
++ asistenciaMedica()
++ diseñarRehabilitacion()
+}
+
+class Entrenador{
++dirigirEntrenamiento()
++diseñarTactica()
+}
+
+Futbolista --u|> DigitalFc
+Entrenador--u|> DigitalFc
+Presidente --u|> DigitalFc
+Fisioterapeuta --u|> DigitalFc
+
+Futbolista -l-> Entrenador
+Fisioterapeuta o-- Futbolista
+
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class MiembroComunidadEscolar{
+-numLegajo : int
+-nombre : String
+-apellido :String
+-edad: int
+-correo: String
+}
+
+class Estudiante{
++ estudiar(): void
+}
+
+class Profesor{
+- titulo : String
+- antiguedadLaboral: double
++ darClases()
+}
+
+class PersonalAdministrativo{
+- cargo: String
++ administrar()
+}
+
+Profesor --u|> MiembroComunidadEscolar
+Estudiante --u|> MiembroComunidadEscolar
+PersonalAdministrativo --u|> MiembroComunidadEscolar
+Estudiante -l-> Profesor
+
+@enduml

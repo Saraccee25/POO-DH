@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Editorial{
+-nombre: String
+-revistas: Revista[]
+}
+class Revista{
+-nombre:String
+-codigo: String
+-periodicidad: String
+-ediciones: Edicion[]
+}
+Revista *-- Edicion
+class Edicion{
+-numero: int
+-fechaEdicion: Date
+-precio: double
+}
+Edicion o-- Articulo
+class Articulo{
+-titulo: String
+-tema: string
+-autor:String
+-fecha: Date
+}
+Imprenta ..> Revista
+class Imprenta{
+-numero:int
+-tipo: String
++imprimir(Revista revista)
+}
+
+@enduml
