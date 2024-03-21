@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Titulo{
+-persona:Persona
+-cantMaterias: int
+-fechaInicio: Date
+-fechaFin: Date
++Titulo(Persona persona, int cantMaterias,
+Date fechaInicio, Date fechaFin)
+-fueSelladoMinisterio: boolean
+-fueSelladoInstituto:boolean
++sePuedeEjercer(): boolean
+}
+
+class TituloTerciario{
+-validacion: String
++TituloTerciario(Persona persona, int cantMaterias,
+ Date fechaInicio, Date fechaFin, String validacion)
+ +esValidoNacional(): boolean
+}
+
+class TituloLicenciatura{
+-temaTesis: String
+-fechaEntregaTesis: String
+-cantTrabajosInvestigacion: int
++TituloLicenciatura(Persona persona, int cantidadMaterias,
+ Date fechaInicio, Date fechaFin, String temaTesis, Date fechaEntregaTesis,
+int cantTrabajosInvestigacion
++EsMayorQue(TituloLicenciatura otroTitulo): boolean
+}
+
+class Persona{
+-nombre: String
+-apellido:String
+-dni: int
+-edad: int
++Persona(String nombre, String apellido,
+int dni, int edad)
+}
+
+Persona --> Titulo
+TituloTerciario -u-|> Titulo
+TituloLicenciatura -u-|> Titulo
+
+
+@enduml

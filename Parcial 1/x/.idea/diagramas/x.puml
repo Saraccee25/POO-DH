@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+title Diagrama de secuencia UML para el flujo editorial de la Revista Politécnica
+
+participant Autor as Autor
+participant Editor as Editor
+participant Auxiliar as Auxiliar
+participant Evaluador as Evaluador
+participant Sistema as Sistema
+
+Autor -> Editor: Enviar artículo
+Editor -> Autor: Revisar artículo
+Editor -> Auxiliar: Evaluar plagio
+Auxiliar -> Editor: Resultado evaluación plagio
+Editor -> Evaluador: Asignar artículo
+Evaluador -> Sistema: Evaluar artículo
+Sistema -> Editor: Enviar evaluación
+Editor -> Autor: Notificar decisión
+Autor -> Editor: Enviar versión modificada (opcional)
+Editor -> Sistema: Aprobar para edición
+Sistema -> Autor: Notificar aprobación
+Sistema -> Autor: Generar constancia
+
+@enduml
